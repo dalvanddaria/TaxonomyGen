@@ -1,0 +1,6 @@
+langgraph
+langchain-core
+langchain-openai
+python-dotenv
+pydantic
+mysql-connector-python
