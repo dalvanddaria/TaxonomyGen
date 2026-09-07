@@ -30,8 +30,7 @@ def _setup_classification_chain(configuration: Configuration, taxonomy: list[str
         taxonomy="\n".join(f"- {t}" for t in taxonomy)
     )
     # max_tokens: response is one JSON object per mention in the batch.
-    # temperature=0: this is a decision, not a creative task - want the
-    # same answer every time, not a fresh roll.
+    # temperature=0: this is a decision, consistency is more important than exploration. The model should be deterministic.
     model = load_chat_model(configuration.fast_llm, max_tokens=4096, temperature=0)
 
     return (prompt | model | StrOutputParser() | parse_classifications).with_config(

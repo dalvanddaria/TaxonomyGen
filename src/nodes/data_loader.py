@@ -42,8 +42,7 @@ async def fetch_mentions(state: State, config: RunnableConfig) -> dict:
     # empty if no mentions were fetched at all. validation_mentions is drawn
     # from the remainder, keeping the two sets disjoint. max_mentions is sized
     # to give both their full size in the common case; on a small tail batch,
-    # validation_mentions shrinks instead of sample (safe - see
-    # select_better_taxonomy's fallback for an empty validation set).
+    # validation_mentions shrinks instead of sample.
     sample_size = min(configuration.sample_size, len(all_mentions))
     sample = random.sample(all_mentions, sample_size)
 
