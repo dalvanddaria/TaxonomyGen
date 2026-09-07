@@ -4,3 +4,4 @@ venv/
 __pycache__/
 *.pyc
 .langgraph_api/
+src/data/
